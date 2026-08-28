@@ -1,0 +1,56 @@
+<mat-sidenav-container fullscreen>
+
+
+  <mat-sidenav #sidenav mode="push" position="end" [ngStyle]="{ width: '250px' }">
+    <mat-toolbar>
+      <span>Menú</span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <mat-nav-list>
+      @for (item of sidebarItems; track item) {
+        <mat-list-item
+          [routerLink]="item.url"
+          (click)="sidenav.toggle()"
+          >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          {{ item.label }}
+        </mat-list-item>
+      }
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+  <mat-toolbar color="primary">
+    <div>
+      <h1 [ngStyle]="{ 'margin': 'auto'}">SuperHeroes</h1>
+    </div>
+    <span class="spacer"></span>
+    @for (item of sidebarItems; track item) {
+      <div
+        [routerLink]="item.url"
+        class="computer"
+        >
+        <mat-list-item class="menu-item"><mat-icon class="menu-icon" matListItemIcon>{{ item.icon }}</mat-icon>{{ item.label }}</mat-list-item>
+      </div>
+    }
+    <button class="mobile" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+
+  <div >
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</mat-sidenav-container>

@@ -1,0 +1,23 @@
+.menu-item{
+    margin: auto;
+    cursor: pointer !important;
+}
+.menu-icon{
+    margin-right: 6px !important;
+}
+.mobile{
+    display: none;
+}
+.computer{
+    display: block;
+}
+
+@media (max-width: 767px) {
+    
+    .mobile{
+        display: block;
+    }
+    .computer{
+        display: none;
+    }
+  }

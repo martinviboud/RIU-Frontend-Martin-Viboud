@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>¿Estas Seguro?</h1>
+<div mat-dialog-content>Vas a eliminar para siempre a {{data.name}}</div>
+<div mat-dialog-actions class="botones">
+    <button 
+        mat-button 
+        mat-dialog-close 
+        (click)="onNoClick()">
+            Cancelar
+    </button>
+    <button 
+        mat-raised-button 
+        color="warn"
+        (click)="onConfirm()">
+            <mat-icon>delete</mat-icon>
+            Confirmar
+    </button>
+</div>

@@ -1,0 +1,128 @@
+@if (!isLoading) {
+  <div>
+    <p class="titulo">{{ currentHero.id ? 'Editar' : 'Agregar' }}</p>
+    <mat-divider></mat-divider>
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <div>
+          <img [src]="heroForm.value.img" alt="new Hero">
+        </div>
+        <div>
+          <h1><strong>Información</strong></h1>
+          <mat-divider></mat-divider>
+          <mat-form-field class="form-field">
+            <mat-label>Nombre</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="name"
+              appUpperCase
+              />
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <mat-label>Género</mat-label>
+              <mat-select disableRipple formControlName="gender">
+                <mat-option value="Male">Hombre</mat-option>
+                <mat-option value="Female">Mujer</mat-option>
+                <mat-option value="-">No Corresponde</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <mat-label>Compañía</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="publisher"
+                />
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <mat-label>Nombre Real</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="fullName"
+                  />
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                  <mat-label>Lugar de Nacimiento</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    formControlName="placeOfBirth"
+                    />
+                  </mat-form-field>
+                </div>
+                <div>
+                  <h1><strong>Poderes</strong></h1>
+                  <mat-divider></mat-divider>
+                  <section class="power-slider">
+                    <label>Inteligencia:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="intelligence" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                  <section class="power-slider">
+                    <label>Fuerza:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="strength" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                  <section class="power-slider">
+                    <label>Velocidad:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="speed" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                  <section class="power-slider">
+                    <label>Durablidad:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="durability" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                  <section class="power-slider">
+                    <label>Poder:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="power" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                  <section class="power-slider">
+                    <label>Combate:</label>
+                    <mat-slider  min="0" max="100" step="1" discrete [displayWith]="formatLabel">
+                      <input formControlName="combat" matSliderThumb>
+                    </mat-slider>
+                  </section>
+                </div>
+              </div>
+            </form>
+            <div class="botones">
+              <div class="botones-end">
+                @if (currentHero.id) {
+                  <button
+                    mat-raised-button
+                    color="warn"
+                    (click)="deleteHero()">
+                    <mat-icon>delete</mat-icon>
+                    Eliminar
+                  </button>
+                }
+                <button
+                  mat-raised-button
+                  (click)="onSubmit()">
+                  <mat-icon>save</mat-icon>
+                  Guardar
+                </button>
+              </div>
+              <button mat-raised-button
+                color="primary"
+                (click)="goBack()">
+                Regresar
+              </button>
+            </div>
+          </div>
+        } @else {
+          <div class="loader">
+            <mat-spinner >
+            </mat-spinner>
+          </div>
+        }
+

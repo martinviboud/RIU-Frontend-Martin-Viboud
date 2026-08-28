@@ -1,0 +1,57 @@
+@if (isLoading) {
+  <div>
+    <div class="loader" >
+      <mat-spinner>
+      </mat-spinner>
+    </div>
+  </div>
+}
+@if (hero) {
+  <div>
+    <p class="titulo">{{hero.name}}</p>
+    <mat-divider></mat-divider>
+    <div class="container">
+      <div>
+        <img [src]="hero.images.md" [alt]="hero.name">
+      </div>
+      <div>
+        <h1><strong>Información</strong></h1>
+        <mat-divider></mat-divider>
+        <h1>Compañía: {{hero.biography.publisher}}</h1>
+        <h1>Género: {{hero.appearance.gender | genderPipe}}</h1>
+        <h1>Alter Ego: {{hero.biography.alterEgos}}</h1>
+        <h1>Nombre real: {{hero.biography.fullName}}</h1>
+        <h1>Lugar de nacimiento: {{hero.biography.placeOfBirth}}</h1>
+      </div>
+      <div>
+        <h1><strong>Poderes</strong></h1>
+        <mat-divider></mat-divider>
+        <h1>Inteligencia</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.intelligence"></mat-progress-bar>
+        <h1>Fuerza</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.strength"></mat-progress-bar>
+        <h1>Velocidad</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.speed"></mat-progress-bar>
+        <h1>Durabilidad</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.durability"></mat-progress-bar>
+        <h1>Poder</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.power"></mat-progress-bar>
+        <h1>Combate</h1>
+        <mat-progress-bar mode="determinate" [value]="hero.powerstats.combat"></mat-progress-bar>
+      </div>
+    </div>
+    <div class="botones">
+      <button mat-raised-button
+        color="primary"
+        (click)="goBack()">
+        Regresar
+      </button>
+      <button mat-raised-button
+        color="secondary"
+        [routerLink]="['/layout/edit', hero.id]">
+        <mat-icon> border_color</mat-icon>
+        Editar
+      </button>
+    </div>
+  </div>
+}

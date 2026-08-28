@@ -1,0 +1,25 @@
+.example-card{
+    max-width: 320px;
+    
+}
+img{
+    width: stretch;
+}
+.pointer{
+    cursor: pointer;
+}
+.publisher{
+    background-color: black;
+    border-radius: 10px;
+    padding: 4px 8px !important;
+    display: inline;
+}
+mat-card-header, mat-card-content{
+    padding: 10px;
+}
+
+mat-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

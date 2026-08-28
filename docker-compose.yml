@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - mockserver
+
+  mockserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.mockserver
+    ports:
+      - "3000:3000"
